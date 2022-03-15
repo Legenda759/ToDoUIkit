@@ -15,8 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        settingsNavigation()
         return true
     }
+    
+    func settingsNavigation() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        appearance.backgroundColor = UIColor.white
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+//        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        let proxy = UINavigationBar.appearance()
+        proxy.tintColor = .black
+    }
+
 
     // MARK: UISceneSession Lifecycle
 
@@ -63,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data Saving support
 
-    func saveContext () {
+    func saveContext (){
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
